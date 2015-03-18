@@ -1,0 +1,10 @@
+<%= link_to "New Deck", decks_new_path %>
+
+<% @decks.each do |deck| %>
+  <div>
+    <%= link_to deck.name, deck_path(deck) %>
+    -
+    <%= link_to "Edit", "/decks/#{deck.id}/edit" %>
+    <%= link_to "Delete", deck_path(deck), method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+<% end %>
