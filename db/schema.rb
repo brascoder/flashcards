@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317021556) do
+ActiveRecord::Schema.define(version: 20150318101702) do
+
+  create_table "cards", force: :cascade do |t|
+    t.string   "front"
+    t.string   "back"
+    t.integer  "deck_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cards", ["deck_id"], name: "index_cards_on_deck_id"
 
   create_table "decks", force: :cascade do |t|
     t.string   "name"
