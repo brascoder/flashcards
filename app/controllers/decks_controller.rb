@@ -19,7 +19,7 @@ class DecksController < ApplicationController
   end
 
   def edit
-    @deck = 
+    @deck = find_deck
   end
 
   def update
