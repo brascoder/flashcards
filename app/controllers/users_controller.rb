@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.password = encrypt(@user.password)
     @user.save
     sign_in @user
     redirect_to decks_path

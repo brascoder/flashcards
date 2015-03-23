@@ -1,3 +1,5 @@
+require "digest/md5"
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -23,4 +25,8 @@ class ApplicationController < ActionController::Base
     current_user
   end
   helper_method :signed_in?
+
+  def encrypt string
+    Digest::MD5.hexdigest string
+  end
 end
