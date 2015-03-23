@@ -1,6 +1,8 @@
 class DecksController < ApplicationController
+  before_action :authenticate
+
   def index
-    @decks = Deck.all
+    @decks = current_user.decks
   end
 
   def show
@@ -9,11 +11,11 @@ class DecksController < ApplicationController
   end
 
   def new
-    @deck = Deck.new
+    @deck = current_user.decks.new
   end
 
   def create
-    @deck = Deck.new(deck_params)
+    @deck = current_user.decks.new(deck_params)
     @deck.save
     redirect_to decks_path
   end
@@ -29,7 +31,7 @@ class DecksController < ApplicationController
   end
 
   def destroy
-    Deck.delete(params[:id])
+    current_user.decks.delete(params[:id])
     redirect_to decks_path
   end
 
@@ -40,6 +42,7 @@ class DecksController < ApplicationController
   end
 
   def find_deck
-    Deck.find(params[:id])
+    current_user.decks.find(params[:id])
   end
-end
+
+  end
