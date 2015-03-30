@@ -1,3 +1,5 @@
+<div class="row"><%= link_to @deck.name, @deck, class: "btn btn-default" %></div>
+<br>
 <%= form_for [@deck, @card] do |form| %>
   <%= render form %>
   <%= form.submit "Update card", class: "btn btn-primary" %>

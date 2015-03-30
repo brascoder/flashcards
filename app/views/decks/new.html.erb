@@ -1,3 +1,5 @@
+<div class="row"><%= link_to "Decks", decks_path, class: "btn btn-default" %></div>
+<br>
 <%= form_for @deck do |form| %>
   <%= render form %>
   <%= form.submit "Create Deck", class: "btn btn-primary" %>
