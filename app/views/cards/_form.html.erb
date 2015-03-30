@@ -1,8 +1,22 @@
-<div>
-  <%= form.label :front %>
-  <%= form.text_field :front %>
+<div class="row">
+  <div class="col-md-2">
+    <%= form.label :front %>
+  </div>
 </div>
-<div>
-  <%= form.label :back %>
-  <%= form.text_field :back %>
+<div class="row">
+  <div class="col-md-4">
+    <%= form.text_field :front, class: "form-control" %>
+  </div>
 </div>
+<br>
+<div class="row">
+  <div class="col-md-2">
+    <%= form.label :back %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <%= form.text_field :back, class: "form-control" %>
+  </div>
+</div>
+<br>
