@@ -1,12 +1,18 @@
-<%= link_to "Decks", decks_path %>
+<div class="row"><%= link_to "Decks", decks_path, class: "btn btn-default" %></div>
 <h2><%= @deck.name %></h2>
 
-<%= link_to "New card", new_deck_card_path(@deck) %>
+<div><%= link_to "New card", new_deck_card_path(@deck), class: "btn btn-primary" %></div>
+<br>
 <% @cards.each do |card| %>
-  <div>
-    <%= link_to card.front, [@deck, card] %>
-    -
-    <%= link_to "Edit", edit_deck_card_path(@deck, card) %>
-    <%= link_to "Delete", [@deck, card], method: :delete, data: {confirm: "Are your sure" } %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= link_to card.front, [@deck, card] %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to "Edit", edit_deck_card_path(@deck, card) %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to "Delete", [@deck, card], method: :delete, data: {confirm: "Are your sure" } %>
+    </div>
   </div>
 <% end %>
