@@ -25,6 +25,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+    unless @user
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    sign_out
+  end
+
   private
 
   def user_params

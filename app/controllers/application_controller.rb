@@ -17,6 +17,11 @@ class ApplicationController < ActionController::Base
     cookies.signed[:user_id] = user.id
   end
 
+  def sign_out
+    cookies.delete(:user_id)
+    redirect_to root_path
+  end
+
   def authenticate
     redirect_to new_session_path unless signed_in?
   end
